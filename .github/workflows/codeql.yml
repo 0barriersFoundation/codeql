@@ -3,8 +3,12 @@ name: "Code Scanning - CodeQL"
 on:
   push:
     branches: [main, develop, "feat/*"]
+    paths:
+      - "javascript/**"
   pull_request:
     branches: [main, develop, "feat/*"]
+    paths:
+      - "javascript/**"
   schedule:
     # runs on schedule basis to find latest vulnerabilities even if code is not pushed
     - cron: "0 10 * * *"
@@ -31,7 +35,7 @@ jobs:
         uses: github/codeql-action/init@v2
         # Override language selection by uncommenting this and choosing your languages
         with:
-          languages: go, javascript, csharp, python, cpp, java
+          languages: javascript
 
       # Autobuild attempts to build any compiled languages (C/C++, C#, or Java).
       # If this step fails, then you should remove it and run the build manually (see below).
