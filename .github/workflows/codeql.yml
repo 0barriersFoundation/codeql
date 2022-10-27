@@ -3,12 +3,8 @@ name: "Code Scanning - CodeQL"
 on:
   push:
     branches: [main, develop, "feat/*"]
-    paths:
-      - "javascript/**"
   pull_request:
     branches: [main, develop, "feat/*"]
-    paths:
-      - "javascript/**"
   schedule:
     # runs on schedule basis to find latest vulnerabilities even if code is not pushed
     - cron: "0 10 * * *"
